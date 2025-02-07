@@ -1,12 +1,6 @@
 import os
 
-def take_screenshot(driver, folder_path = "screenshots", file_name="secret"):
-    """
-    Captures a screenshot of the current page.
-    
-    :param driver: The Selenium WebDriver instance.
-    :param file_name: The file name (or path) to save the screenshot. Default is 'screenshot.png'.
-    """
+def take_screenshot(driver, folder_path, file_name):
     driver.save_screenshot(file_name)
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -18,3 +12,13 @@ def take_screenshot(driver, folder_path = "screenshots", file_name="secret"):
     driver.save_screenshot(file_path)
 
     return file_path  # Return the path to the saved screenshot
+
+"""
+    Captures a screenshot of the current page.
+    
+    :param driver: The Selenium WebDriver instance.
+    :param file_name: The file name (or path) to save the screenshot. Default is 'screenshot.png'.
+    
+    Copy and Paste this code to your shit
+    screenshot_path = take_screenshot(driver , folder_path = "screenshots", file_name="try1qq.png")
+"""
