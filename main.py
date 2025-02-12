@@ -4,6 +4,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Library.take_ss import take_screenshot
+from modules import clickmodule
 
 import time
 
@@ -16,6 +17,14 @@ time.sleep(5)
 time.sleep(10)
 driver.find_element(By.NAME, "username").send_keys("Admin")
 driver.find_element(By.NAME, "password").send_keys("admin123")
-screenshot_path = take_screenshot(driver , folder_path = "ORANGEHRM-ScriptTest\Screenshots", file_name="001 Login.png")
+# screenshot_path = take_screenshot(driver , folder_path = "ORANGEHRM-ScriptTest\Screenshots", file_name="001 Login.png")
 driver.find_element(By.CLASS_NAME, "oxd-button--main").click()
-time.sleep(10)
+
+time.sleep(5)
+cm = clickmodule(driver)
+cm.click_pim()
+
+time.sleep(5)
+driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a/span').click()
+time.sleep(5)
+
