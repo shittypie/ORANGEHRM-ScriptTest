@@ -57,6 +57,7 @@ class func:
         self.driver = driver
         
     def addEmployee(self):
+        time.sleep(10)
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button').click()
         time.sleep(10)
 
@@ -82,3 +83,35 @@ class func:
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]').click()
         
         
+        
+# NOTESSSSS
+# KENAT BYPASS THE LEAVE MODULE
+
+# driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveModule")
+# time.sleep(5)
+
+
+# driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]/ul/li[1]/a').click()
+# time.sleep(5)
+# # driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div/div/div[2]/div/div/input').send_keys("m", Keys.ARROW_DOWN, Keys.ENTER)
+# # time.sleep(5)
+
+# dropdown_element = driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[1]/div/div[2]/div/div')
+# dropdown_element.send_keys('M')
+# select = Select(dropdown_element)
+# select.select_by_index(0)
+# time.sleep(5)
+# dropdown_element = driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[1]/div/div[2]/div/div')
+# select = Select(dropdown_element)
+# select.select_by_visible_text("Option Text")
+# time.sleep(5)
+# leave_period = driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[1]/div/div[2]/div/div')
+# select = Select(leave_period)
+# select.select_by_visible_text("2026-01-01 - 2026-31-12")
+
+# time.sleep(5)
+# driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[3]/div/div[2]/input')
+# # driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[4]/button[1]') # Cancel button
+# time.sleep(2)
+# driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[4]/button[2]') # Save button
+
