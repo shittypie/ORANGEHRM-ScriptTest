@@ -59,13 +59,13 @@ class func:
     def addEmployee(self):
         time.sleep(10)
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button').click()
-        time.sleep(10)
+        time.sleep(5)
 
         self.driver.find_element(By.NAME, "firstName").send_keys("fname")
         self.driver.find_element(By.NAME, "middleName").send_keys("mname")
         time.sleep(5)
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[1]/div/div/div[2]/div[3]/div[2]/input').send_keys("lname")
-        time.sleep(5)
+        time.sleep(2)
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/input').send_keys("121222")
 
         elem = WebDriverWait(self.driver, 10).until(
@@ -73,16 +73,32 @@ class func:
         )
         self.driver.execute_script("arguments[0].click();", elem)
 
-        time.sleep(10)
+        time.sleep(2)
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/input').send_keys("username")
         time.sleep(2)
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/div/div[2]/input').send_keys("password123")
-        time.sleep(2)
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[2]/div/div[2]/input').send_keys("password123")
-        time.sleep(5)
+        time.sleep(2)
         self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]').click()
+        time.sleep(5)
         
-        
+
+    def add_personalDetails(self):
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]'))
+        )
+        print("table found")
+        first_row = driver.find_element(By.XPATH, "(//div[@class='oxd-table-row oxd-table-row--with-border oxd-table-row--clickable'])[1]")
+        first_row.click()
+
+        # PERSONAL DETAILS
+        # Full name
+        time.sleep(10)
+        driver.find_element(By.NAME, "firstName").send_keys("first")
+        time.sleep(2)
+        driver.find_element(By.NAME, "middleName").send_keys("mid")
+        time.sleep(2)
+        driver.find_element(By.NAME, "lastName").send_keys("last")
         
 # NOTESSSSS
 # KENAT BYPASS THE LEAVE MODULE
