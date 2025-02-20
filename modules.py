@@ -158,16 +158,44 @@ class func:
         print("Hello world") 
         
     def add_contactDetails(self):
-        main = self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]')
-        # try:
-        #     text_inputs = WebDriverWait(main, 5).until(
-        #     EC.presence_of_all_elements_located((By.XPATH, "//input[contains(@class, 'oxd-input oxd-input--active')]"))
-        #     )
-        #     text_field = text_inputs[0]
-        #     text_field.send_keys("Street 1")
-        # except Exception as e:
-        #     print(f"An error occurred: {e}")
-        # Wait until all input fields are present
+        # Address
+        time.sleep(5)
+        self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div[1]/div/div[2]/input').send_keys("Street 1")
+        self.driver.find_element(By.XPATH, '<input data-v-1f99f73c="" class="oxd-input oxd-input--active">').send_keys("Street 2")
+        self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div[3]/div/div[2]/input').send_keys("City")
+        self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div[4]/div/div[2]/input').send_keys("State/Provice")
+        self.driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div[5]/div/div[2]/input').send_keys("1111")
+        try: # Country
+            dropdown = self.driver.find_elements(By.XPATH, "//div[@class='oxd-select-text oxd-select-text--active']")
+            dropdown[0].click()
+            options_xpath = "//div[@role='option']"
+            options = WebDriverWait(self.driver, 5).until(
+                EC.presence_of_all_elements_located((By.XPATH, options_xpath))
+            )
+            next(option for option in options if option.text.strip() == "Algeria").click()
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+        # Telephone
+        time.sleep(3)
+        self.driver.find_element(By.XPATH, '<input data-v-1f99f73c="" class="oxd-input oxd-input--active" modelmodifiers="[object Object]">').send_keys("Home")
+        self.driver.find_element(By.XPATH, '').send_keys("12345678") # Mobile
+        self.driver.find_element(By.XPATH, '').send_keys("12345678") # Work
+        
+        # Email
+        time.sleep(3)
+        self.driver.find_element(By.XPATH, '').send_keys("sad@das.xyz") # Email
+        self.driver.find_element(By.XPATH, '').send_keys("sad@gmail.com") # Other Email
+        
+        time.sleep(2)
+        driver.find_element(By.XPATH, '//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button').click() # Save button
+        
+        # Attachment
+    
+    
+    def add_emergencyContacts(self):
+        print("world")
 
 
 
