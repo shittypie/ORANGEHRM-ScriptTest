@@ -41,8 +41,7 @@ fc = func(driver)
 # )
 # print("table found")
 time.sleep(5)
-first_row = driver.find_element(By.XPATH, "(//div[@class='oxd-table-row oxd-table-row--with-border oxd-table-row--clickable'])[1]")
-first_row.click()
+driver.find_element(By.XPATH, "(//div[@class='oxd-table-row oxd-table-row--with-border oxd-table-row--clickable'])[1]").click() # Click the first item in the table
 print("item selected")
 
 time.sleep(5)
