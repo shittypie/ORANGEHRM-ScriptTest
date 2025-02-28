@@ -67,12 +67,6 @@ class moduleTabs:
 # driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 # time.sleep(5)
 
-l = Login() 
-l.setup()           
-l.login()
-
-time.sleep(2)
-driver.find_element(By.XPATH, '//a[normalize-space()="Admin"]').click() 
 
 # Navigate to all modules
 # mt = moduleTabs(driver)
