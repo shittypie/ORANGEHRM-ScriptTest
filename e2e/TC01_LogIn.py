@@ -1,13 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 import time
-import json
-import pytest
 
 
 class Login:
+    # -------------- Usage -------------- #
+    # from TC01_LogIn import Login
+    
+    # l = Login() 
+    # l.setup()           
+    # l.login()           
+    # l.close()  
+    # -------------- Usage -------------- #
+    
     def __init__(self):
         self.driver = None
     
@@ -31,27 +36,14 @@ class Login:
     def close(self):
         time.sleep(2)
         self.driver.quit()
-        
+        print("System Closed")
 
         
-# if __name__ == "__main__":
-#     l = Login() 
-#     l.setup()           
-#     l.login()           
-#     # l.close()   
+if __name__ == "__main__":
+    # Usage of Class
+    l = Login() 
+    l.setup()           
+    l.login()           
+    l.close()   
     
-#     time.sleep(3)
-
-@pytest.fixture(scope="module", autouse=True)
-def run_login():
-    """Automatically executes the test setup, login, and close methods."""
-    login_obj = Login()
-    login_obj.setup()  # Open browser
-
-    yield login_obj  # Keep browser session open
-
-    login_obj.close()  # Close browser after execution
-
-def test_run(run_login):
-    """pytest requires at least one test function to trigger execution."""
-    run_login.login()  # Perform login
+    time.sleep(3)

@@ -1,19 +1,28 @@
-from TC01_LogIn import Login
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
 import time
-
+from TC01_LogIn import Login
 
 
 class moduleTabs:
     
+    # -------------- Usage -------------- #
+    # from TC01_LogIn import Login
+    # from TabModule import moduleTabs
+    
+    # l = Login()
+    # mt = moduleTabs(l.driver) <-- Driver of Login function
+    # mt.admin()
+    # -------------- Usage -------------- #
+    
     def __init__(self, driver):
-        self.driver = driver
+        self.driver = driver 
         
     def admin(self):
         self.driver.find_element(By.XPATH, '//a[normalize-space()="Admin"]').click() 
+        print("clicked")
         time.sleep(5)
         
     def pim(self): 
@@ -58,27 +67,28 @@ class moduleTabs:
     def performance(self): 
         self.driver.find_element(By.XPATH, '//a[normalize-space()="Performance"]').click()
         time.sleep(2)
+        
+if __name__ == "__main__":
+    # options = webdriver.ChromeOptions()
+    # options.add_experimental_option("detach", True)
+    # driver = webdriver.Chrome(options=options)
+    # driver.maximize_window()
+    # driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    # print("Setup initialized...")
 
-
-# options = webdriver.ChromeOptions()
-# options.add_experimental_option("detach", True)
-# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-# driver.maximize_window()
-# driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
-# time.sleep(5)
-
-
-# Navigate to all modules
-# mt = moduleTabs(driver)
-# mt.admin()
-# mt.pim()
-# mt.leave()
-# mt.time()
-# mt.recruitment()
-# mt.myInfo()
-# mt.performance()
-# mt.dashboard()
-# mt.Directory() 
-# mt.claim()
-# mt.buzz()
-# mt.performance()
+    # time.sleep(5)
+    # username = "Admin"
+    # password = "admin123"
+    # driver.find_element(By.NAME, "username").send_keys(username)
+    # driver.find_element(By.NAME, "password").send_keys(password)
+    # driver.find_element(By.XPATH, "//button[@type='submit']").click()
+    # print("Login Successful") 
+    
+    l = Login() 
+    l.setup()           
+    l.login()  
+    mt = moduleTabs(l.driver)
+    time.sleep(5)
+    mt.admin()
+    
+    time.sleep(3)
