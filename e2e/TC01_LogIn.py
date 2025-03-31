@@ -40,7 +40,6 @@ class Login:
 
         
 if __name__ == "__main__":
-    # Usage of Class
     l = Login() 
     l.setup()           
     l.login()           
