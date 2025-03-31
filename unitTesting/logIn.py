@@ -2,15 +2,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
+class login: # Select all modules from the sidebar menu
 
-class Login:
     # -------------- Usage -------------- #
-    # from TC01_LogIn import Login
-    
-    # l = Login() 
-    # l.setup()           
-    # l.login()           
-    # l.close()  
+    # from unitTesting import logIn
+    # 
+    # l = logIn.login()
+    # l.setup()
+    # l.login()
     # -------------- Usage -------------- #
     
     def __init__(self):
@@ -32,17 +31,4 @@ class Login:
         self.driver.find_element(By.NAME, "password").send_keys(password)
         self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
         print("Login Successful")
-
-    def close(self):
-        time.sleep(2)
-        self.driver.quit()
-        print("System Closed")
-
         
-if __name__ == "__main__":
-    l = Login() 
-    l.setup()           
-    l.login()           
-    l.close()   
-    
-    time.sleep(3)

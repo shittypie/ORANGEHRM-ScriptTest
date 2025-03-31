@@ -8,9 +8,8 @@ import time
 
 
 
-class NewEmloyee:
+class EmployeeManagement:
     # -------------- Usage -------------- #
-    # from TC01_LogIn import Login
     # from TC02_AddEmployee import NewEmployee
     
     # ne = NewEmloyee(l.driver)
@@ -23,11 +22,12 @@ class NewEmloyee:
     def AddEmployee(self):
         time.sleep(2)
         self.driver.find_element(By.XPATH, "//button[normalize-space()='Add']").click()
-        self.driver.find_element(By.XPATH, "//input[@placeholder='First Name']").send_keys("Juab")
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, "//input[@placeholder='First Name']").send_keys("Juan")
         self.driver.find_element(By.XPATH, "//input[@placeholder='Middle Name']").send_keys("Dela")
         self.driver.find_element(By.XPATH, "//input[@placeholder='Last Name']").send_keys("Cruz")
         time.sleep(2)
-        empId = self.driver.find_element(By.XPATH, "//input[@class='oxd-input oxd-input--focus']")
+        empId = self.driver.find_element(By.XPATH, "//div[@class='oxd-input-group oxd-input-field-bottom-space']//div//input[@class='oxd-input oxd-input--active']")
         empId.send_keys(Keys.CLEAR)
         time.sleep(1)
         empId.send_keys("500")
@@ -38,7 +38,7 @@ class NewEmloyee:
         self.driver.execute_script("arguments[0].click();", elem)
         
         time.sleep(5)
-        self.driver.find_element(By.XPATH, "(//input[@class='oxd-input oxd-input--active'])[3]").send_keys("juan12345")
+
         self.driver.find_element(By.XPATH, "(//input[@class='oxd-input oxd-input--active'])[3]").send_keys("juan12345")
         # self.driver.find_element(By.XPATH, "//label[normalize-space()='Enabled']").click()
         # self.driver.find_element(By.XPATH, "//label[normalize-space()='Disabled']").click()
@@ -48,3 +48,7 @@ class NewEmloyee:
         time.sleep(2)
         self.driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click() # Save button
         # self.driver.find_element(By.XPATH, "//button[normalize-space()='Cancel']").click()
+        
+    def SelectRow(self): # Select first row from the table of PIM 
+        first_row = self.driver.find_element(By.XPATH, "(//div[@class='oxd-table-row oxd-table-row--with-border oxd-table-row--clickable'])[1]")
+        # first_row.click()
